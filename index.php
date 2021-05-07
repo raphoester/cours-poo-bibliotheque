@@ -24,8 +24,12 @@
 
 
         $lm = new LivreManager($pdo);
+        var_dump($lm->selectionner(1));
+        echo "<br> <br> <br>";
 
         $l1 = new Livre(1, "Les Fleurs du Mal", "Baudelaire", "Poésie", "123456789", '25-06-1857', Livre::FORMAT_POCHE, 8.70, "Gallimard", "images/TOUT_JS.jpg");
+        $l1->hydrate($lm->selectionner(1));
+        var_dump($l1);
         $l2 = new Livre(1, "Voyage au bout de la Nuit", "Céline", "Roman", "123456789", '25-06-1932', Livre::FORMAT_POCHE, 8.70, "Gallimard", "images/TOUT_JS.jpg");
         
         $livres = array($l1, $l1, $l1, $l1, $l1, $l1, $l1, $l1, $l1, $l1, $l1, $l1);

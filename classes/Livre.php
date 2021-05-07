@@ -29,6 +29,15 @@
             $this->setImage($image);
         }
 
+        public function hydrate(Array $tableau){
+            foreach ($tableau as $cle => $valeur){
+                $methode = 'set'.ucfirst($cle);
+                if (method_exists($this, $methode)){
+                    $this->$methode($valeur);
+                }
+            }
+        }
+
         //GETTERS
         public function getId(){
             return $this->_id;
@@ -69,7 +78,7 @@
         //SETTERS
         public function setId($id){
             if (is_string($id) && $id != ""){
-                $this->_id = $id;
+                $this->_id = (int)$id;
             }
         }
         public function setTitre($titre){
@@ -101,7 +110,7 @@
         }
         public function setFpoche($fpoche){
             if(in_array($fpoche, array(self::FORMAT_POCHE, self::FORMAT_GRAND))){
-                $this->_fpoche = $fpoche;
+                $this->_fpoche = (boolean)$fpoche;
             }
         }
         public function setPrix($prix){
