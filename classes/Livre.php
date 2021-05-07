@@ -16,7 +16,7 @@
         public const FORMAT_GRAND = 1;
 
         //CONSTRUCTEUR
-        public function __construct($id, $titre, $auteur, $genre, $isbn, $parution, $fpoche, $prix, $editeur, $image){
+        public function __construct($id="", $titre="", $auteur="", $genre="", $isbn="", $parution="", $fpoche="", $prix="", $editeur="", $image=""){
             $this->setId($id);
             $this->setTitre($titre);
             $this->setAuteur($auteur);
